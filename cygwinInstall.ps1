@@ -11,7 +11,7 @@ if ($env:USERNAME -eq $null) { $env:USERNAME = $env:USER }
 
 # Paths
 $download   = Join-Path $env:home "Downloads\Cygwin"
-$setup_path = Join-Path $download "setup.exe"
+$setup_path = Join-Path $download "setup-x86_64.exe"
 $options    = @{
   "mirror"      = "http://mirror.cs.vt.edu/pub/cygwin/cygwin"
   "uninstall"   = "false";
@@ -47,7 +47,7 @@ if (-not (check('uninstall'))) {
       mkdir $download
     }
     "Download cygwin setup.exe..."
-    (New-Object System.Net.WebClient).DownloadFile("http://cygwin.com/setup.exe", $setup_path)
+    (New-Object System.Net.WebClient).DownloadFile("https://cygwin.com/setup-x86_64.exe", $setup_path)
   }
 
   # Run setup
